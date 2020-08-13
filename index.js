@@ -7,6 +7,7 @@ var port = 3000
 var booksRouter = require("./Routes/books.route");
 var usersRouter = require("./Routes/users.route");
 var transactionRouter = require("./Routes/transaction.route");
+var loginRouter = require("./Routes/login.route")
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -16,6 +17,7 @@ app.set('views','./views');
 
 // Set some defaults (required if your JSON file is empty)
 app.use(express.static('public'))
+app.use("/login",loginRouter);
 app.use("/books",booksRouter);
 
 
