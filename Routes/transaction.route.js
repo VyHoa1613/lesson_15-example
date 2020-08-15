@@ -3,7 +3,9 @@ var router = express.Router()
 
 var controller = require("../controllers/controller.transaction")
 var validate = require("../middleware/transactions.validate")
-router.get("/",controller.indexTransaction)
+var authAdmin = require("../middleware/authAdmin")
+
+router.get("/",authAdmin.authAdmin ,controller.indexTransaction)
 
 router.get("/create",controller.getCreateTransaction)
 
