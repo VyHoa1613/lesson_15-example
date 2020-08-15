@@ -13,26 +13,6 @@ module.exports.getCreateUser = (req, res) => {
 
 module.exports.postCreateUser =  (req, res) => {
     req.body.id = shortid.generate();
-    var errors = [];
-    var values = req.body.name;
-    if(!req.body.name)
-    {
-        errors.push("name is required.");
-    }
-    if(req.body.name.length > 30)
-    {
-        errors.push("name must not exceed 30 characters");
-    }
-
-    if(errors.length)
-    {
-        res.render("users/create",{
-            errors:errors,
-            values:values
-        });
-        return;
-    }
-
     db.get("users").push(req.body).write();
     res.redirect("/users");
 }

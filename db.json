@@ -18,28 +18,29 @@
   ],
   "users": [
     {
-      "name": "12312",
-      "id": "GGP2VmbiD"
+      "name": "hoa",
+      "password": "123123",
+      "id": "AkKtNSoyT",
+      "isAdmin":"true"
     },
     {
-      "name": "1asd",
-      "id": "HY5JVw-kw"
-    },
-    {
-      "name": "iqruiqwrq",
-      "id": "mSKSkvvM7"
-    },
-    {
-      "name": "asdasd",
-      "id": "qWgFdbyt7"
+      "name": "loan",
+      "password": "123123",
+      "id": "Nb6XTvt21"
     }
   ],
   "transaction": [
     {
-      "userId": "GGP2VmbiD",
+      "userId": "AkKtNSoyT",
       "bookId": "GBFvPz_T-",
       "isComplete": "true",
-      "id": "QhwsDrSOA"
+      "id": "R9JPcwxZm"
+    },
+    {
+      "userId": "Nb6XTvt21",
+      "bookId": "X_IxDU_lJ",
+      "isComplete": "false",
+      "id": "aCvTcaZSD"
     }
   ]
 }

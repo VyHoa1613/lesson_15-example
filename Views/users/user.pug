@@ -1,7 +1,7 @@
 extends ../layout/common
 
 block content
-  h1 List books
+  h1 List Users
   style.
     th,td{
     border: 1px solid black;
@@ -14,11 +14,13 @@ block content
   table
       tr
           th Name
+          td Password
           th Update
           th Delete
       each user in users
           tr
               td= user.name
+              td=user.password
               td
                   a(href="/users/"+ user.id + "/update") Update
               td

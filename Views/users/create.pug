@@ -8,6 +8,10 @@ block content
     form(action="/users/create",method="POST")
         label(for="name") Name
         br
-        input#name(type="text", name="name",value=values ? values : "")
+        input#name(type="text", name="name",value=values ? values.name : "")
         br
-        button Create
+        label(for="password") Name
+        br
+        input#password(type="text", name="password",value=values ? values.password : "")
+        br
+        button(class="btn btn-primary mb-2") Create

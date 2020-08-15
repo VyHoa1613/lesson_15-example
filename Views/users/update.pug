@@ -3,8 +3,13 @@ extends ../layout/common
 block content
     h1 Update book
     form(action="/users/update",method="POST")
-        label Name
-        br
-        input(type="text", name="name")
         input(type="text",name="id", value=user.id,style="display:none")
-        button Update
+        label(for="name") Name
+        br
+        input#name(type="text", name="name")
+        br
+        label(for="password") Name
+        br
+        input#password(type="text", name="password")
+        br
+        button(class="btn btn-primary mb-2") Update

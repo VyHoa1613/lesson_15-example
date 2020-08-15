@@ -3,6 +3,7 @@ var shortid = require('shortid')
 
 module.exports.indexTransaction = (req, res) =>{
     var usersTran = db.get("transaction").value();
+    console.log(usersTran)
     var takeUser =usersTran.map(function(item){
         return{
             user: db.get("users").find({id:item.userId}).value().name,
@@ -34,29 +35,7 @@ module.exports.postCreateTransaction = (req, res)=> {
 
 module.exports.getViewTransaction = (req, res)  =>{
     var id = req.params.id;
-    var idInTran = db.get("transaction").find({id:id}).value();
-    var errors = []
     var tran = db.get("transaction").find({id: id}).value();
-    console.log(id);
-    if(!idInTran)
-    {
-        errors.push("id not correct");
-        var usersTran = db.get("transaction").value();
-        var takeUser =usersTran.map(function(item){
-        return{
-            user: db.get("users").find({id:item.userId}).value().name,
-            book: db.get("books").find({id:item.bookId}).value().title,
-            id: db.get("transaction").find({id:item.id}).value().id,
-            isComplete: db.get("transaction").find({id:item.id}).value().isComplete
-            }
-        })
-        res.render("transaction/borrow",{
-            borrows:takeUser,
-            errors:errors
-            })
-        return;
-    }
-
     res.render("transaction/view",{
         tran:tran
     })
