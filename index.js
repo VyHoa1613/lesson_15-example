@@ -1,6 +1,8 @@
 
 var express = require('express')
+var cookieParser = require('cookie-parser')
 var app = express()
+
 var port = 3000
 
 
@@ -9,6 +11,9 @@ var usersRouter = require("./Routes/users.route");
 var transactionRouter = require("./Routes/transaction.route");
 var loginRouter = require("./Routes/login.route")
 
+var auth = require("./middleware/auth")
+
+app.use(cookieParser())
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
@@ -18,14 +23,14 @@ app.set('views','./views');
 // Set some defaults (required if your JSON file is empty)
 app.use(express.static('public'))
 app.use("/login",loginRouter);
-app.use("/books",booksRouter);
+app.use("/books",auth.auth,booksRouter);
 
 
 
 // Users
-app.use("/users",usersRouter);
+app.use("/users",auth.auth,usersRouter);
 //
-app.use("/transaction",transactionRouter);
+app.use("/transaction",auth.auth,transactionRouter);
 
 app.listen(port, () => {
     console.log('hello book store'+ port);

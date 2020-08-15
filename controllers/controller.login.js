@@ -14,8 +14,6 @@ module.exports.postLogin = (req, res) =>{
         })
         return;
     }
-    console.log(user.password);
-    console.log(password);
     if(user.password !== password)
     {
         res.render("login/login",{
@@ -24,6 +22,7 @@ module.exports.postLogin = (req, res) =>{
         })
         return;
     }
-
+    res.cookie("userId",user.id);
+    console.log(req.cookies)
     res.redirect("/users");
 }
