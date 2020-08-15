@@ -2,12 +2,13 @@ var express = require('express')
 var router = express.Router()
 
 var controller = require("../controllers/controller.user")
+var validate =  require("../middleware/users.validate")
 
 router.get("/",controller.indexUser)
 
 router.get("/create",controller.getCreateUser)
 
-router.post("/create", controller.postCreateUser)
+router.post("/create",validate.postCreateUsers, controller.postCreateUser)
 
 router.get("/:id/delete",controller.deleteUser)
 
