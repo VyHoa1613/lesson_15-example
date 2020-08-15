@@ -8,7 +8,11 @@ block content
         br
         input#name(type="text", name="name")
         br
-        label(for="password") Name
+        label(for="email") Email
+        br
+        input#email(type="text", name="email",value=values ? values.email : "")
+        br
+        label(for="password") Password
         br
         input#password(type="text", name="password")
         br

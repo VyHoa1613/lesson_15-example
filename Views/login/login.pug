@@ -6,12 +6,12 @@ block content
             alert.alert-danger= error
     h1 Create User
     form(action="/login",method="POST")
-        label(for="name") Name
+        label(for="email") Email
         br
-        input#name(type="text", name="name",value=values ? values : "",class="form-control")
+        input#email(type="text", name="email",value=values ? values.email : "",class="form-control")
         br
         label(for="pass") PassWord
         br
-        input#pass(type="text", name="pass",value=values ? values : "",class="form-control")
+        input#pass(type="text", name="pass",value=values ? values.password : "",class="form-control")
         br
-        button(class="btn btn-primary mb-2") Create
+        button(class="btn btn-primary mb-2") Login

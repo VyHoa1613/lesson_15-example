@@ -18,13 +18,15 @@
   ],
   "users": [
     {
+      "email": "hoavy@gmail.com",
       "name": "hoa",
       "password": "123123",
       "id": "AkKtNSoyT",
-      "isAdmin":"true"
+      "isAdmin": "true"
     },
     {
       "name": "loan",
+      "email": "loan@gmail.com",
       "password": "123123",
       "id": "Nb6XTvt21"
     }
