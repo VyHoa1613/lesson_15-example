@@ -5,7 +5,7 @@ var controller = require("../controllers/controller.transaction")
 var validate = require("../middleware/transactions.validate")
 var authAdmin = require("../middleware/authAdmin")
 
-router.get("/",authAdmin.authAdmin ,controller.indexTransaction)
+router.get("/" ,controller.indexTransaction)
 
 router.get("/create",controller.getCreateTransaction)
 

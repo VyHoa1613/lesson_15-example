@@ -11,6 +11,8 @@ var usersRouter = require("./Routes/users.route");
 var transactionRouter = require("./Routes/transaction.route");
 var loginRouter = require("./Routes/login.route")
 
+var authAdmin = require("./middleware/authAdmin")
+
 var auth = require("./middleware/auth")
 
 app.use(cookieParser())
@@ -23,14 +25,14 @@ app.set('views','./views');
 // Set some defaults (required if your JSON file is empty)
 app.use(express.static('public'))
 app.use("/login",loginRouter);
-app.use("/books",auth.auth,booksRouter);
+app.use("/books",auth.auth,authAdmin.authAdmin,booksRouter);
 
 
 
 // Users
-app.use("/users",auth.auth,usersRouter);
+app.use("/users",auth.auth,authAdmin.authAdmin,usersRouter);
 //
-app.use("/transaction",auth.auth,transactionRouter);
+app.use("/transaction",auth.auth,authAdmin.authAdmin,transactionRouter);
 
 app.listen(port, () => {
     console.log('hello book store'+ port);
