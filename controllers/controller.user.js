@@ -1,6 +1,8 @@
 var db = require("../db");
 var shortid = require('shortid')
 var md5 = require('md5');
+var bcrypt = require('bcrypt');
+
 
 module.exports.indexUser = (req, res) =>{
     res.render("users/user",{
@@ -14,10 +16,17 @@ module.exports.getCreateUser = (req, res) => {
 
 module.exports.postCreateUser =  (req, res) => {
     req.body.id = shortid.generate();
-    var hashPassword = md5(req.body.password);
-    req.body.password = hashPassword;
-    db.get("users").push(req.body).write();
-    res.redirect("/users");
+    var saltRounds = 10;
+    var myPlaintextPassword = req.body.password;
+    var a = bcrypt.genSalt(saltRounds, function(err, salt) {
+            bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+                // Store hash in your password DB.   
+                req.body.password = hash;
+                 db.get("users").push(req.body).write();
+                res.redirect("/users");
+            });
+        });
+
 }
 
 module.exports.deleteUser = (req, res) =>{
