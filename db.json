@@ -20,15 +20,21 @@
     {
       "email": "hoavy@gmail.com",
       "name": "hoa",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "id": "AkKtNSoyT",
       "isAdmin": "true"
     },
     {
       "name": "loan",
       "email": "loan@gmail.com",
-      "password": "123123",
+      "password": "4297f44b13955235245b2497399d7a93",
       "id": "Nb6XTvt21"
+    },
+    {
+      "name": "van",
+      "email": "van@gmail.com",
+      "password": "4297f44b13955235245b2497399d7a93",
+      "id": "EuEpdr_ne"
     }
   ],
   "transaction": [
