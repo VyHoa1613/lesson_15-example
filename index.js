@@ -1,6 +1,7 @@
 
 var express = require('express')
 var cookieParser = require('cookie-parser')
+var md5 = require('md5');
 var app = express()
 
 var port = 3000
@@ -15,7 +16,7 @@ var authAdmin = require("./middleware/authAdmin")
 
 var auth = require("./middleware/auth")
 
-app.use(cookieParser())
+app.use(cookieParser("aiuasdnajsd"));
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 

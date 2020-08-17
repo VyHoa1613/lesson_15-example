@@ -1,7 +1,7 @@
 const db = require("../db");
-
+var md5 = require('md5');
 module.exports.authAdmin = (req, res, next) =>{
-    var user = db.get("users").find({id:req.cookies.userId}).value();
+    var user = db.get("users").find({id:req.signedCookies.userId}).value();
     var userTran = db.get("transaction").filter({userId: user.id}).value();
     var errors = []
     var takeUser = userTran.map(function(item) {
